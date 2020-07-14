@@ -5,7 +5,7 @@
     <button v-if="decodeToken" type="button" class="btn btn__copy" @click="handleCopy">Copy</button>
 
     <form class="form" @submit.prevent="handleSubmitForm">
-      <textarea v-model="token" cols="30" rows="10" placeholder="Paste token here..."></textarea>
+      <textarea v-model="token" placeholder="Paste token here..." @blur="handleSubmitForm" />
       <button type="submit" class="btn btn__submit">Decode token</button>
     </form>
 
