@@ -2,11 +2,11 @@
   <div id="app">
     <h1>JWT Decode Token</h1>
 
-    <button v-if="decodeToken" type="button" @click="handleCopy">Copy</button>
+    <button v-if="!decodeToken" type="button" class="btn btn__copy" @click="handleCopy">Copy</button>
 
     <form class="form" @submit.prevent="handleSubmitForm">
       <textarea v-model="token" cols="30" rows="10" placeholder="Paste token here..."></textarea>
-      <button type="submit">Decode token</button>
+      <button type="submit" class="btn btn__submit">Decode token</button>
     </form>
 
     <Highlight class="highlight__wrapper">{{ decodeToken }}</Highlight>
@@ -58,50 +58,60 @@ export default {
 
 <style>
 * {
+  box-sizing: border-box;
   color: #2c3e50;
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  outline: none;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  outline: none;
 }
 
-html, body, #app {
+html,
+body,
+#app {
   height: calc(100% - 15px);
 }
 
 h1 {
   background: #41a1b9;
   color: #fff;
-  text-align: center;
-  position: fixed;
-  left: 0;
-  right: 0;
-  top: 0;
   font-size: 20px;
-  z-index: 10;
+  left: 0;
   padding: 10px;
+  position: fixed;
+  right: 0;
+  text-align: center;
+  top: 0;
+  z-index: 10;
 }
 
-/* #app {
-  text-align: center;
-  color: #2c3e50;
-  max-width: 600px;
-  margin: 60px auto;
-} */
-
-button[type="button"] {
-  position: absolute;
-  right: 0;
-  top: 0;
-  z-index: 11;
-  top: 60px;
-  right: 30px;
-  padding: 6px;
+.btn {
+  background-color: #eee;
+  border: none;
+  border: 1px solid #ccc;
+  color: #333;
+  cursor: pointer;
   font-weight: 600;
+  transition: background-color .26s;
+}
+
+.btn:hover {
+  background-color: #e4e4e4;
+}
+
+.btn__copy {
+  background-color: #eee;
+  border-color: #aaa;
+  border-radius: 4px;
   font-size: 12px;
+  font-weight: 600;
+  padding: 6px 12px;
+  position: absolute;
+  right: 10px;
+  top: 60px;
+  z-index: 11;
 }
 
 .form,
@@ -118,31 +128,28 @@ button[type="button"] {
 }
 
 textarea,
-button[type="submit"] {
+.btn__submit {
   display: block;
   padding: 12px;
   width: 100%;
-  border: 0;
 }
 
 textarea {
-  position: absolute;
+  border: none;
   bottom: 46px;
+  height: 100%;
   left: 0;
+  position: absolute;
+  resize: none;
   right: 0;
   top: 0;
-  resize: none;
-  height: 100%;
 }
 
-button[type="submit"] {
-  background-color: #ccc;
-  /* color: #fff; */
-  position: absolute;
-  left: 0;
-  right: 0;
+.btn__submit {
   bottom: 0;
-  font-weight: 600;
+  left: 0;
+  position: absolute;
+  right: 0;
 }
 
 .highlight__wrapper {
