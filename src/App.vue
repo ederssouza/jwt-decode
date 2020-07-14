@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <h1>JWT Decode Token</h1>
+    <h1>JWT Decoder</h1>
 
     <button v-if="decodeToken" type="button" class="btn btn__copy" @click="handleCopy">Copy</button>
 
