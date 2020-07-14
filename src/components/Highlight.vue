@@ -1,6 +1,5 @@
 <template>
   <prism
-    v-if="visible"
     :language="language"
     class="prism"
     :class="[
