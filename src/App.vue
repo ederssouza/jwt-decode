@@ -2,7 +2,7 @@
   <div id="app">
     <h1>JWT Decode Token</h1>
 
-    <button v-if="!decodeToken" type="button" class="btn btn__copy" @click="handleCopy">Copy</button>
+    <button v-if="decodeToken" type="button" class="btn btn__copy" @click="handleCopy">Copy</button>
 
     <form class="form" @submit.prevent="handleSubmitForm">
       <textarea v-model="token" cols="30" rows="10" placeholder="Paste token here..."></textarea>
