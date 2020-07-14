@@ -132,6 +132,7 @@ textarea {
   right: 0;
   top: 0;
   resize: none;
+  height: 100%;
 }
 
 button[type="submit"] {
